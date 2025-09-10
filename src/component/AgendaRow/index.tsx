@@ -12,10 +12,6 @@ interface AgendaRowProps {
   status: string;
 }
 
-interface UserRel {
-  nama: string,
-}
-
 const AgendaRow = ({ user_rel, kegiatan, lokasi, jamMulai, jamSelesai, status }: AgendaRowProps) => {
   return (
     <div className="grid grid-cols-6 gap-4 p-4 text-gray-800 bg-gray-50 hover:bg-blue-100 transition-colors duration-400 transform hover:scale-105">

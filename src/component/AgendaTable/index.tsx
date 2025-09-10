@@ -2,7 +2,7 @@
 
 "use client"; // Tambahkan baris ini
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AgendaRow from '@/component/AgendaRow';
 import '@/app/AgendaTableAutoScroll.css';
 

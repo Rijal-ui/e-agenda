@@ -1,7 +1,6 @@
 // components/Footer.tsx
 
 import React from 'react';
-import Image from 'next/image'; // Import komponen Image dari Next.js
 
 const Footer = () => {
   return (
