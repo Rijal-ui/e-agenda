@@ -1,0 +1,27 @@
+/* components/AgendaTableAutoScroll.css */
+
+/* Mendefinisikan animasi scroll ke atas */
+@keyframes scrollUp {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-50%); /* Menggeser ke atas sejauh 50% dari tinggi konten */
+    }
+}
+
+/* Mengatur container yang bisa di-scroll */
+.agenda-scroll-container {
+    max-height: 60vh; /* Mengatur tinggi maksimum menjadi 70% dari tinggi viewport */
+    overflow-y: auto; /* Mengaktifkan scrollbar vertikal hanya saat konten melebihi tinggi container */
+}
+
+/* Menerapkan animasi pada list */
+.agenda-scroll-list {
+    animation: scrollUp 20s linear infinite; /* Kecepatan 20s, konstan, dan berulang */
+}
+
+/* Menjaga animasi berhenti saat kursor berada di atasnya (opsional) */
+.agenda-scroll-list:hover {
+    animation-play-state: paused;
+}

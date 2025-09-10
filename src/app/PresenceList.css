@@ -1,0 +1,28 @@
+/* components/PresenceList.css */
+
+/* Mendefinisikan animasi scroll */
+@keyframes scrollDown {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-50%); /* Menggeser ke atas sejauh 50% dari tinggi container */
+    }
+}
+
+/* Mengatur container yang bisa di-scroll */
+.scroll-container {
+    max-height: 62vh; /* Mengatur tinggi maksimum menjadi 70% dari tinggi viewport */
+    overflow-y: auto; /* Mengaktifkan scrollbar vertikal hanya saat konten melebihi tinggi container */
+}
+
+
+/* Menerapkan animasi pada list */
+.scroll-list {
+    animation: scrollDown 35s linear infinite; /* Kecepatan 15s, linear (konstan), dan berulang */
+}
+
+/* Menjaga animasi berhenti saat kursor berada di atasnya (opsional) */
+.scroll-list:hover {
+    animation-play-state: paused;
+}
