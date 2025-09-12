@@ -115,7 +115,7 @@ const AgendaTable = () => {
       <div className="text-center p-8 text-gray-500 flex flex-col items-center justify-center space-y-4">
         {/* ICON AGENDA (Kalender dengan Jam) */}
         <svg 
-          className="h-20 w-20 text-blue-950" 
+          className="h-20 w-20 text-blue-450" 
           viewBox="0 0 24 24" 
           fill="none" 
           stroke="currentColor" 
@@ -130,7 +130,7 @@ const AgendaTable = () => {
           <circle cx="17" cy="17" r="3"></circle>
           <path d="M17 15v2l1 1"></path>
         </svg>
-        <p className='text-blue-950'>Tidak ada data agenda pada hari ini.</p>
+        <p className='text-blue-450'>Tidak ada data agenda pada hari ini.</p>
       </div>
     </div>
     )
