@@ -103,6 +103,7 @@ const AgendaTable = () => {
   const loopableData = [...agendaData, ...agendaData, ...agendaData, ...agendaData]
 
   if (agendaData.length === 0) {
+    return (
     <div className="bg-white p-8 rounded-2xl text-blue-950 shadow-xl mt-4 border-r-8 border-blue-400">
 
       <div className="grid grid-cols-6 gap-4 p-4 font-bold text-white bg-blue-950 rounded-xl">
@@ -111,10 +112,28 @@ const AgendaTable = () => {
         ))}
       </div>
 
-       <div className="text-center p-8 text-gray-500">
-        Tidak ada data agenda pada hari ini.
-        </div>
+      <div className="text-center p-8 text-gray-500 flex flex-col items-center justify-center space-y-4">
+        {/* ICON AGENDA (Kalender dengan Jam) */}
+        <svg 
+          className="h-20 w-20 text-blue-950" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="1" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+        >
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+          <circle cx="17" cy="17" r="3"></circle>
+          <path d="M17 15v2l1 1"></path>
+        </svg>
+        <p className='text-blue-950'>Tidak ada data agenda pada hari ini.</p>
+      </div>
     </div>
+    )
   }
 
   return (
