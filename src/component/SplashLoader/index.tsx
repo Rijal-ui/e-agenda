@@ -4,6 +4,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import LottieLoading from "@/component/SplashLoader/Loading";
 
 interface SplashLoaderProps {
   children: React.ReactNode;
@@ -52,6 +53,8 @@ const SplashLoader = ({ children, duration = 5000, transitionDuration = 1000 }: 
             />
             <h1 className="text-4xl font-extrabold text-blue-700">E - Agenda</h1>
             <p className="text-lg text-gray-600">Loading...</p>
+            <LottieLoading
+            />
           </div>
         </div>
       )}
