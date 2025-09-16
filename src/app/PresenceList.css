@@ -19,7 +19,7 @@
 
 /* Menerapkan animasi pada list */
 .scroll-list {
-    animation: scrollDown 35s linear infinite; /* Kecepatan 15s, linear (konstan), dan berulang */
+    animation: scrollDown 75s linear infinite; /* Kecepatan 15s, linear (konstan), dan berulang */
 }
 
 /* Menjaga animasi berhenti saat kursor berada di atasnya (opsional) */

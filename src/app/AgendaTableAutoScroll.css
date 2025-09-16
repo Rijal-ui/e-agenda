@@ -18,7 +18,7 @@
 
 /* Menerapkan animasi pada list */
 .agenda-scroll-list {
-    animation: scrollUp 20s linear infinite; /* Kecepatan 20s, konstan, dan berulang */
+    animation: scrollUp 70s linear infinite; /* Kecepatan 20s, konstan, dan berulang */
 }
 
 /* Menjaga animasi berhenti saat kursor berada di atasnya (opsional) */
