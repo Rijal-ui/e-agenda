@@ -57,6 +57,7 @@ const AgendaTable = () => {
         }
 
         setAgendaData(dataArray);
+        setError(null);
       } catch (e: any) {
         setError(e.message);
       } finally {
@@ -64,6 +65,12 @@ const AgendaTable = () => {
       }
     };
     fecthAgendaData();
+
+    // Set interval untuk fetch data setiap 30 detik (30000ms)
+    const intervalId = setInterval(fecthAgendaData, 20000);
+
+    // Fungsi cleanup untuk menghentikan interval saat komponen dilepas
+    return () => clearInterval(intervalId);
   }, []);
 
   if (isLoading) {

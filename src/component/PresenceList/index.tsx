@@ -66,7 +66,7 @@ const PresenceList = () => {
         }
 
         setPresenceData(dataArray);
-
+        setError(null); // Menghapus error jika sebelumnya ada
       } catch (e: any) {
         setError(e.message);
       } finally {
@@ -74,6 +74,12 @@ const PresenceList = () => {
       }
     };
     fetchPresenceData();
+
+    // Set interval untuk fetch data setiap 30 detik (30000ms)
+    const intervalId = setInterval(fetchPresenceData, 20000);
+
+    // Fungsi cleanup untuk menghentikan interval saat komponen dilepas
+    return () => clearInterval(intervalId);
   }, []);
 
   if (isLoading) {
