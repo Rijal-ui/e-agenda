@@ -6,9 +6,12 @@ import Footer from '@/component/Footer';
 import AgendaTable from '@/component/AgendaTable';
 import PresenceList from '@/component/PresenceList';
 import SplashLoader from '@/component/SplashLoader';
+import RotateDeviceWarning from '@/component/RotateDeviceWarning';
 
 export default function Home() {
   return (
+    <>
+    <RotateDeviceWarning /> {/* Tempatkan di sini untuk overlay */}
     <SplashLoader duration={5000}>
       <div className="bg-blue-950 min-h-screen p-6">
         <div className="max-w-9xl mx-auto">
@@ -26,5 +29,6 @@ export default function Home() {
         <Footer />
       </div>
     </SplashLoader>
+    </>
   );
 }
