@@ -2,12 +2,14 @@
 
 "use client"; // Tambahkan baris ini
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import AgendaRow from '@/component/AgendaRow';
 import '@/app/AgendaTableAutoScroll.css';
+import { da } from 'date-fns/locale';
 
 interface ApiAgendaItem {
   user_rel: UserRel;
+  tanggal_kegiatan: string;
   nama_kegiatan: string;
   lokasi_kegiatan: string;
   jam_mulai: string;
@@ -73,6 +75,51 @@ const AgendaTable = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  const getFormattedDate = (dateString: string) => {
+    const date = new Date(dateString);
+    const options: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return date.toLocaleDateString('id-ID', options);
+  };
+
+  // Mengelompokkan data tanpa filter
+  const groupedDate = useMemo(() => {
+    return agendaData.reduce((groups, item) => {
+      const date = item.tanggal_kegiatan;
+      if (!groups[date]) {
+        groups[date] = [];
+      }
+      groups[date].push(item);
+      return groups;
+    }, {} as Record<string, ApiAgendaItem[]>);
+  }, [agendaData]);
+
+  const loopableRender = useMemo(() => {
+    const renderableElements = Object.keys(groupedDate).flatMap(date => {
+      const dateHeader = (
+        <div 
+          key={`header-${date}`} 
+          className="bg-blue-200 text-blue-800 font-semibold text-center py-2 px-4 rounded-md mb-2 mt-4"
+        >
+          {getFormattedDate(date)}
+        </div>
+      );
+      const agendaRows = groupedDate[date].map((agenda, index) => (
+        <AgendaRow
+          key={`${agenda.user_rel.nama}-${date}-${index}`}
+          user_rel={agenda.user_rel.nama}
+          kegiatan={agenda.nama_kegiatan}
+          lokasi={agenda.lokasi_kegiatan}
+          jamMulai={agenda.jam_mulai}
+          jamSelesai={agenda.jam_selesai}
+          status={agenda.status_kegiatan}
+        />
+      ));
+      return [dateHeader, ...agendaRows];
+    });
+
+    return [...renderableElements, ...renderableElements];
+  }, [groupedDate]);
+
   if (isLoading) {
     return (
       <div className="bg-white p-8 rounded-2xl text-blue-950 shadow-xl mt-4 border-r-8 border-blue-400">
@@ -107,9 +154,7 @@ const AgendaTable = () => {
     );
   }
 
-  const loopableData = [...agendaData, ...agendaData, ...agendaData, ...agendaData]
-
-  if (agendaData.length === 0) {
+  if (Object.keys(groupedDate).length === 0) {
     return (
     <div className="bg-white p-8 rounded-2xl text-blue-950 shadow-xl mt-4 border-r-8 border-blue-400">
 
@@ -154,17 +199,11 @@ const AgendaTable = () => {
 
      <div className="agenda-scroll-container mt-4 border border-gray-200 rounded-lg overflow-hidden">
         <div className="agenda-scroll-list">
-        {loopableData.map((agenda, index) => (
-          <AgendaRow
-            key={index}
-            user_rel={agenda.user_rel.nama}
-            kegiatan={agenda.nama_kegiatan}
-            lokasi={agenda.lokasi_kegiatan}
-            jamMulai={agenda.jam_mulai}
-            jamSelesai={agenda.jam_selesai}
-            status={agenda.status_kegiatan}
-          />
-        ))}
+           {loopableRender.map((element, index) => (
+            <React.Fragment key={index}>
+              {element}
+            </React.Fragment>
+          ))}
         </div>
       </div>
     </div>
