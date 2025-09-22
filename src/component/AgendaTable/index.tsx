@@ -117,7 +117,7 @@ const AgendaTable = () => {
       return [dateHeader, ...agendaRows];
     });
 
-    return [...renderableElements, ...renderableElements];
+    return [...renderableElements, ...renderableElements, ...renderableElements, ...renderableElements];
   }, [groupedDate]);
 
   if (isLoading) {
