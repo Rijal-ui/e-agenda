@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image'; // Import komponen Image dari Next.js
+import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -19,6 +20,11 @@ const Header = () => {
           <p className="text-blue-950 mt-1 text-sm md:text-base">Display Agenda Dinas Komunikasi dan Informatika</p>
         </div>
       </div>
+      <Link href="//e-agenda.hstkab.go.id">
+       <button className="px-6 py-3 bg-blue-950 text-white font-bold rounded-2xl hover:bg-blue-400 hover:text-blue-950 transition-colors duration-200 shadow-md">
+        Login
+      </button>
+      </Link>
     </div>
   );
 };
