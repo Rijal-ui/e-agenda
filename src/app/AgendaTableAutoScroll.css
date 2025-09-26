@@ -12,7 +12,7 @@
 
 /* Mengatur container yang bisa di-scroll */
 .agenda-scroll-container {
-    max-height: 60vh; /* Mengatur tinggi maksimum menjadi 70% dari tinggi viewport */
+    max-height: 27vh; /* Mengatur tinggi maksimum menjadi 70% dari tinggi viewport */
     overflow-y: auto; /* Mengaktifkan scrollbar vertikal hanya saat konten melebihi tinggi container */
 }
 

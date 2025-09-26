@@ -122,7 +122,7 @@ const AgendaTable = () => {
 
   if (isLoading) {
     return (
-      <div className="bg-white p-8 rounded-2xl text-blue-950 shadow-xl mt-4 border-r-8 border-blue-400">
+      <div className="bg-white p-4 rounded-2xl text-blue-950 shadow-xl mt-4 border-r-8 border-blue-400">
 
       <div className="grid grid-cols-6 gap-4 p-4 font-bold text-white bg-blue-950 rounded-xl">
         {headers.map((header) => (
@@ -130,7 +130,7 @@ const AgendaTable = () => {
         ))}
       </div>
 
-      <div className="text-center p-8 text-gray-500 animate-pulse">
+      <div className="text-center p-4 text-gray-500 animate-pulse">
         Sedang memuat data agenda...
       </div>
     </div>
@@ -139,7 +139,7 @@ const AgendaTable = () => {
 
   if (error) {
     return (
-      <div className="bg-white p-8 rounded-2xl text-blue-950 shadow-xl mt-4 border-r-8 border-blue-400">
+      <div className="bg-white p-4 rounded-2xl text-blue-950 shadow-xl mt-4 border-r-8 border-blue-400">
 
       <div className="grid grid-cols-6 gap-4 p-4 font-bold text-white bg-blue-950 rounded-xl">
         {headers.map((header) => (
@@ -147,7 +147,7 @@ const AgendaTable = () => {
         ))}
       </div>
 
-      <div className="text-center p-8 text-red-500">
+      <div className="text-center p-4 text-red-500">
         Terjadi kesalahan saat memuat data: {error}
       </div>
     </div>
@@ -156,7 +156,7 @@ const AgendaTable = () => {
 
   if (Object.keys(groupedDate).length === 0) {
     return (
-    <div className="bg-white p-8 rounded-2xl text-blue-950 shadow-xl mt-4 border-r-8 border-blue-400">
+    <div className="bg-white p-4 rounded-2xl text-blue-950 shadow-xl mt-4 border-r-8 border-blue-400">
 
       <div className="grid grid-cols-6 gap-4 p-4 font-bold text-white bg-blue-950 rounded-xl">
         {headers.map((header) => (
@@ -164,7 +164,7 @@ const AgendaTable = () => {
         ))}
       </div>
 
-      <div className="text-center p-8 text-gray-500 flex flex-col items-center justify-center space-y-4">
+      <div className="text-center p-4 text-gray-500 flex flex-col items-center justify-center space-y-4">
         {/* ICON AGENDA (Kalender dengan Jam) */}
         <svg 
           className="h-20 w-20 text-blue-450" 
@@ -189,9 +189,9 @@ const AgendaTable = () => {
   }
 
   return (
-    <div className="bg-white p-8 rounded-2xl text-blue-950 shadow-xl mt-4 border-r-8 border-blue-400">
+    <div className="bg-white p-4 rounded-2xl text-blue-950 shadow-xl border-r-8 border-blue-400">
 
-      <div className="grid grid-cols-6 gap-4 p-4 font-bold text-white bg-blue-950 rounded-xl">
+      <div className="grid grid-cols-6 gap-4 p-2 font-bold text-white bg-blue-950 rounded-xl">
         {headers.map((header) => (
           <div key={header} className="text-sm md:text-base text-center">{header}</div>
         ))}
