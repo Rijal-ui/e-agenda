@@ -98,8 +98,7 @@ const AgendaTable = () => {
       const dateHeader = (
         <div 
           key={`header-${date}`} 
-          className="bg-blue-200 text-blue-800 font-semibold text-center py-2 px-4 rounded-md mb-2 mt-4"
-        >
+          className="bg-blue-200 text-blue-800 font-semibold text-center py-2 px-4 rounded-md mb-2 mt-4">
           {getFormattedDate(date)}
         </div>
       );

@@ -56,14 +56,11 @@ const PreAgendaTable = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-//   const groupedData = useMemo(() => {
-//     return allAgendaData.reduce((groups, item) => {
-//       const date = item.tanggal;
-//       if (!groups[date]) { groups[date] = []; }
-//       groups[date].push(item);
-//       return groups;
-//     }, {} as Record<string, ApiAgendaItem[]>);
-//   }, [allAgendaData]);
+  const getFormattedDate = (dateString: string) => {
+    const date = new Date(dateString);
+    const options: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return date.toLocaleDateString('id-ID', options);
+  };
 
   const loopableRender = useMemo(() => {
     const renderableElements = Object.keys(allAgendaData).flatMap(date => {
@@ -76,9 +73,9 @@ const PreAgendaTable = () => {
         <PreAgendaRow 
         key={`${agenda.nama_kegiatan}-${index}`} 
         kegiatan={agenda.nama_kegiatan}
-        tanggal={agenda.tanggal_kegiatan} 
+        tanggal={getFormattedDate(agenda.tanggal_kegiatan)}
         waktu={agenda.jam_mulai} 
-        tempat={agenda.lokasi_kegiatan} 
+        tempat={agenda.lokasi_kegiatan}
         pelaksana={agenda.pelaksana} />
       ));
       return [agendaRows];
