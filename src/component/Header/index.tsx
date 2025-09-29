@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-lg border-b-6 border-blue-400 flex items-center space-x-4 justify-between">
+    <div className="bg-white p-3 rounded-2xl shadow-lg border-b-6 border-blue-400 flex items-center space-x-4 justify-between">
       <div className="flex items-center space-x-4">
         <Image
           src="/logo_kominfo.png" // Ganti dengan path logo Anda
@@ -21,7 +21,7 @@ const Header = () => {
         </div>
       </div>
       <Link href="//e-agenda.hstkab.go.id">
-       <button className="px-6 py-3 bg-blue-950 text-white font-bold rounded-2xl hover:bg-blue-400 hover:text-blue-950 transition-colors duration-200 shadow-md">
+       <button className="px-6 py-2 bg-blue-950 text-white font-bold rounded-2xl hover:bg-blue-400 hover:text-blue-950 transition-colors duration-200 shadow-md">
         Login
       </button>
       </Link>

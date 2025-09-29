@@ -84,7 +84,7 @@ const PresenceList = () => {
 
   if (isLoading) {
     return (
-      <div className="space-y-4 mt-4">
+      <div className="space-y-4 mt-2">
       <div className="bg-white p-6 rounded-2xl shadow-xl border-l-8 border-blue-400">
         <h2 className="text-xl font-bold text-gray-800">Daftar Kehadiran</h2>
         <p className="text-gray-500 text-sm">Status terbaru</p>
@@ -101,7 +101,7 @@ const PresenceList = () => {
 
   if (error) {
     return (
-    <div className="space-y-4 mt-4">
+    <div className="space-y-4 mt-2">
       <div className="bg-white p-6 rounded-2xl shadow-xl border-l-8 border-blue-400">
         <h2 className="text-xl font-bold text-gray-800">Daftar Kehadiran</h2>
         <p className="text-gray-500 text-sm">Status terbaru</p>
@@ -121,7 +121,7 @@ const PresenceList = () => {
 
   if (presenceData.length === 0) {
     return (
-    <div className="space-y-4 mt-4">
+    <div className="space-y-4 mt-2">
       <div className="bg-white p-6 rounded-2xl shadow-xl border-l-8 border-blue-400">
         <h2 className="text-xl font-bold text-gray-800">Daftar Kehadiran</h2>
         <p className="text-gray-500 text-sm">Status terbaru</p>
@@ -137,7 +137,7 @@ const PresenceList = () => {
   }
 
   return (
-    <div className="space-y-4 mt-4">
+    <div className="space-y-4 mt-2">
       <div className="bg-white p-6 rounded-2xl shadow-xl border-l-8 border-blue-400">
         <h2 className="text-xl font-bold text-gray-800">Daftar Kehadiran</h2>
         <p className="text-gray-500 text-sm">Status terbaru</p>

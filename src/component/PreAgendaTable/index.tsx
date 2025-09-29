@@ -86,6 +86,9 @@ const PreAgendaTable = () => {
   if (isLoading) {
     return (
       <div className="bg-white p-4 rounded-2xl text-blue-950 shadow-xl mt-4 border-r-8 border-blue-400">
+        <div className='bg-blue-200 rounded-xl text-blue-800 font-semibold text-center py-2 px-4 rounded-md mb-2 '>
+          Agenda
+        </div>
 
       <div className="grid grid-cols-5 gap-4 p-4 font-bold text-white bg-blue-950 rounded-xl">
         {headers.map((header) => (
@@ -102,6 +105,9 @@ const PreAgendaTable = () => {
   if (error) {
     return (
       <div className="bg-white p-4 rounded-2xl text-blue-950 shadow-xl mt-4 border-r-8 border-blue-400">
+        <div className='bg-blue-200 rounded-xl text-blue-800 font-semibold text-center py-2 px-4 rounded-md mb-2 '>
+          Agenda
+        </div>
 
       <div className="grid grid-cols-5 gap-4 p-4 font-bold text-white bg-blue-950 rounded-xl">
         {headers.map((header) => (
@@ -118,6 +124,9 @@ const PreAgendaTable = () => {
   if (Object.keys(allAgendaData).length === 0) {
     return (
     <div className="bg-white p-4 rounded-2xl text-blue-950 shadow-xl mt-4 border-r-8 border-blue-400">
+      <div className='bg-blue-200 rounded-xl text-blue-800 font-semibold text-center py-2 px-4 rounded-md mb-2 '>
+          Agenda
+        </div>
 
       <div className="grid grid-cols-5 gap-4 p-4 font-bold text-white bg-blue-950 rounded-xl">
         {headers.map((header) => (
@@ -149,10 +158,15 @@ const PreAgendaTable = () => {
     )
   }
   return (
-    <div className="bg-white p-4 rounded-2xl shadow-xl mt-4 flex flex-col border-r-8 border-blue-400">
+    <div className="bg-white p-2 rounded-2xl shadow-xl mt-2 flex flex-col border-r-8 border-blue-400">
+      <div className='bg-blue-200 rounded-xl text-blue-800 font-semibold text-center py-2 px-4 rounded-md mb-2 '>
+          Agenda
+        </div>
+        
       <div className="grid grid-cols-5 gap-4 p-2 font-bold text-white bg-blue-950 rounded-xl flex-shrink-0">
         {headers.map(header => <div key={header} className="text-sm md:text-base text-center">{header}</div>)}
       </div>
+      
       <div className="agenda-scroll-container mt-2 border border-gray-200 rounded-lg overflow-hidden">
         <div className="agenda-scroll-list">
           {loopableRender.map((element, index) => <React.Fragment key={index}>{element}</React.Fragment>)}
