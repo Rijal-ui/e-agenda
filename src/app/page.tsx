@@ -15,11 +15,11 @@ export default function Home() {
       <RotateDeviceWarning />
       <SplashLoader duration={5000}>
         <div className="bg-blue-950 min-h-screen p-4 flex flex-col">
-          <div className="max-w-7xl mx-auto w-full">
+          <div className="w-full">
             <Header />
           </div>
 
-          <div className="max-w-7xl mx-auto w-full flex-grow mt-2 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="w-full flex-grow mt-2 grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Kontainer untuk dua tabel agenda (posisi atas-bawah) */}
             <div className="md:col-span-2 flex flex-col gap-4">
               {/* Tabel Agenda Pertama */}

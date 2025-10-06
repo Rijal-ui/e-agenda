@@ -150,7 +150,7 @@ const PresenceList = () => {
               key={index}
               nama={item.nama}
               jam={item.checktime}
-              keterangan={item.keterangan_absen}
+              keterangan={'Absen Masuk'}
             />
           ))}
         </div>

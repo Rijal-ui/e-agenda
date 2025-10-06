@@ -58,7 +58,7 @@ const PreAgendaTable = () => {
 
   const getFormattedDate = (dateString: string) => {
     const date = new Date(dateString);
-    const options: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options: Intl.DateTimeFormatOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
     return date.toLocaleDateString('id-ID', options);
   };
 
@@ -168,7 +168,7 @@ const PreAgendaTable = () => {
       </div>
       
       <div className="agenda-scroll-container mt-2 border border-gray-200 rounded-lg overflow-hidden">
-        <div className="agenda-scroll-list">
+        <div className="agenda-scroll-prelist">
           {loopableRender.map((element, index) => <React.Fragment key={index}>{element}</React.Fragment>)}
         </div>
       </div>
