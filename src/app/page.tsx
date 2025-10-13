@@ -8,6 +8,7 @@ import PreAgendaTable from '@/component/PreAgendaTable'
 import PresenceList from '@/component/PresenceList';
 import SplashLoader from '@/component/SplashLoader';
 import RotateDeviceWarning from '@/component/RotateDeviceWarning';
+import PresencePermissionList from '@/component/PresencePermissionList';
 
 export default function Home() {
   return (
@@ -34,7 +35,12 @@ export default function Home() {
             
             {/* Tabel Kehadiran (posisi samping kanan) */}
             <div className="md:col-span-1 flex flex-col">
+              <div className='flex-1'>
               <PresenceList />
+              </div>
+              <div className='flex-1'>
+              <PresencePermissionList />
+              </div>
             </div>
           </div>
           <Footer />

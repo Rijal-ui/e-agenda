@@ -1,21 +1,20 @@
-// components/PresenceList.tsx
+// components/PresencePermissionList.tsx
 
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import PresenceCard from '@/component/PresenceCard';
+import PresencePermissionCard from '@/component/PresencePermissionCard';
 import '@/app/PresenceList.css'
 import { format } from 'date-fns';
 
 // Mendefinisikan tipe data yang diharapkan dari API
 // Sesuaikan dengan struktur data yang sebenarnya dari API Anda
 interface ApiPresenceItem {
-  nama: string;
-  checktime: string;
-  keterangan_absen: string;
+  Nama: string;
+  Keterangan: string;
 }
 
-const API_URL = 'https://e-agenda.hstkab.go.id/api/agendas/public/attendance';
+const API_URL = 'https://e-agenda.hstkab.go.id/api/agendas/public/attendance/v2';
 const RAW_TOKEN = 'your-secure-api-token-here-change-in-production';
 
 const date = Date.now();
@@ -23,7 +22,7 @@ const yearMonth = format(date, 'yyyyMM');
 const today = format(date, 'yyyy-MM-dd');
 
 
-const PresenceList = () => {
+const PresencePermissionList = () => {
   const [presenceData, setPresenceData] = useState<ApiPresenceItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -31,16 +30,7 @@ const PresenceList = () => {
   useEffect(() => {
     const fetchPresenceData = async () => {
       try {
-        // Mendefinisikan query parameters yang akan dikirim
-        const queryParams = {
-          deptid: '13',
-          periode: yearMonth,
-          start_date: today,
-          end_date: today,
-        };
-
-        const queryString = new URLSearchParams(queryParams).toString();
-        const finalUrl = `${API_URL}?${queryString}`;
+        const finalUrl = `${API_URL}`;
 
         const response = await fetch(finalUrl, {
           method: 'POST',
@@ -59,13 +49,16 @@ const PresenceList = () => {
 
         // Asumsikan respons API adalah objek dengan properti 'data' yang berisi array
         const result = await response.json();
-        const dataArray = result.data; // Ganti '.data' sesuai properti API Anda
+        const dataArray : ApiPresenceItem[] = result.data; // Ganti '.data' sesuai properti API Anda
+
+        // --- Logika Pemfilteran: Hanya ambil data yang 'keterangan'nya BUKAN null ---
+        const filteredData = dataArray.filter(item => item.Keterangan !== null);
 
         if (!Array.isArray(dataArray)) {
           throw new Error("API response is not an array");
         }
 
-        setPresenceData(dataArray);
+        setPresenceData(filteredData);
         setError(null); // Menghapus error jika sebelumnya ada
       } catch (e: any) {
         setError(e.message);
@@ -84,13 +77,12 @@ const PresenceList = () => {
 
   if (isLoading) {
     return (
-      <div className="space-y-4 mt-2">
-      <div className="bg-white p-6 rounded-2xl shadow-xl border-l-8 border-blue-400">
-        <h2 className="text-xl font-bold text-gray-800">Daftar Kehadiran</h2>
-        <p className="text-gray-500 text-sm">Status terbaru</p>
-      </div>
+      <div className="bg-white p-2 rounded-2xl shadow-xl mt-2 flex flex-col border-l-8 border-blue-400">
+      <div className='bg-blue-200 rounded-xl text-blue-800 font-semibold text-center py-2 px-4 rounded-md mb-2 '>
+          Absen Izin
+        </div>
 
-      <div className="scroll-container bg-white rounded-xl p-4 shadow-xl border-l-8 border-blue-400">
+      <div className="scroll-container border border-gray-200 rounded-xl p-4 shadow-xl">
         <div className="text-center p-8 text-gray-500 animate-pulse">
         Sedang memuat data kehadiran...
         </div>
@@ -101,13 +93,12 @@ const PresenceList = () => {
 
   if (error) {
     return (
-    <div className="space-y-4 mt-2">
-      <div className="bg-white p-6 rounded-2xl shadow-xl border-l-8 border-blue-400">
-        <h2 className="text-xl font-bold text-gray-800">Daftar Kehadiran</h2>
-        <p className="text-gray-500 text-sm">Status terbaru</p>
-      </div>
+    <div className="bg-white p-2 rounded-2xl shadow-xl mt-2 flex flex-col border-l-8 border-blue-400">
+      <div className='bg-blue-200 rounded-xl text-blue-800 font-semibold text-center py-2 px-4 rounded-md mb-2 '>
+          Absen Izin
+        </div>
 
-      <div className="scroll-container bg-white rounded-xl p-4 shadow-xl border-l-8 border-blue-400">
+      <div className="scroll-container border border-gray-200 rounded-xl p-4 shadow-xl">
         <div className="text-center p-8 text-red-500">
         Terjadi kesalahan saat memuat data: {error}
         </div>
@@ -117,17 +108,16 @@ const PresenceList = () => {
   }
 
   // Menggandakan data untuk efek looping
-  const loopableData = [...presenceData, ...presenceData];
+  const loopableData = [...presenceData, ...presenceData, ...presenceData, ...presenceData];
 
   if (presenceData.length === 0) {
     return (
-    <div className="space-y-4 mt-2">
-      <div className="bg-white p-6 rounded-2xl shadow-xl border-l-8 border-blue-400">
-        <h2 className="text-xl font-bold text-gray-800">Daftar Kehadiran</h2>
-        <p className="text-gray-500 text-sm">Status terbaru</p>
-      </div>
+    <div className="bg-white p-2 rounded-2xl shadow-xl mt-2 flex flex-col border-l-8 border-blue-400">
+      <div className='bg-blue-200 rounded-xl text-blue-800 font-semibold text-center py-2 px-4 rounded-md mb-2 '>
+          Absen Izin
+        </div>
 
-      <div className="scroll-container bg-white rounded-xl p-4 shadow-xl border-l-8 border-blue-400">
+      <div className="scroll-container border border-gray-200 rounded-xl p-4 shadow-xl">
         <div className="text-center p-8 text-gray-500">
         Tidak ada data kehadiran yang ditemukan.
         </div>
@@ -139,17 +129,16 @@ const PresenceList = () => {
   return (
     <div className="bg-white p-2 rounded-2xl shadow-xl mt-2 flex flex-col border-l-8 border-blue-400">
       <div className='bg-blue-200 rounded-xl text-blue-800 font-semibold text-center py-2 px-4 rounded-md mb-2 '>
-          Absen Masuk
+          Absen Izin
         </div>
 
       <div className="scroll-container border border-gray-200 rounded-xl p-4 shadow-xl">
         <div className="scroll-list space-y-4">
           {loopableData.map((item, index) => (
-            <PresenceCard
+            <PresencePermissionCard
               key={index}
-              nama={item.nama}
-              jam={item.checktime}
-              keterangan={'Absen Masuk'}
+              nama={item.Nama}
+              keterangan={item.Keterangan}
             />
           ))}
         </div>
@@ -158,4 +147,4 @@ const PresenceList = () => {
   );
 };
 
-export default PresenceList;
+export default PresencePermissionList;

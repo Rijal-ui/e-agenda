@@ -161,7 +161,7 @@ const AgendaTable = () => {
 
   if (Object.keys(groupedDate).length === 0) {
     return (
-    <div className="bg-white p-4 rounded-2xl text-blue-950 shadow-xl mt-4 border-r-8 border-blue-400">
+    <div className="bg-white p-2 rounded-2xl text-blue-950 shadow-xl border-r-8 border-blue-400">
       <div className='bg-blue-200 rounded-xl text-blue-800 font-semibold text-center py-2 px-4 rounded-md mb-2 '>
           Kegiatan
         </div>
