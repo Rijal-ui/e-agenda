@@ -29,3 +29,8 @@
 .agenda-scroll-list:hover {
     animation-play-state: paused;
 }
+
+/* Menjaga animasi berhenti saat kursor berada di atasnya (opsional) */
+.agenda-scroll-prelist:hover {
+    animation-play-state: paused;
+}

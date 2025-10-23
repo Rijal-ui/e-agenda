@@ -84,13 +84,12 @@ const PresenceList = () => {
 
   if (isLoading) {
     return (
-      <div className="space-y-4 mt-2">
-      <div className="bg-white p-6 rounded-2xl shadow-xl border-l-8 border-blue-400">
-        <h2 className="text-xl font-bold text-gray-800">Daftar Kehadiran</h2>
-        <p className="text-gray-500 text-sm">Status terbaru</p>
-      </div>
+      <div className="bg-white p-2 rounded-2xl shadow-xl mt-2 flex flex-col border-l-8 border-blue-400">
+      <div className='bg-blue-200 rounded-xl text-blue-800 font-semibold text-center py-2 px-4 rounded-md mb-2 '>
+          Absen Masuk
+        </div>
 
-      <div className="scroll-container bg-white rounded-xl p-4 shadow-xl border-l-8 border-blue-400">
+      <div className="scroll-container bg-white rounded-xl p-4 shadow-xl border border-gray-200">
         <div className="text-center p-8 text-gray-500 animate-pulse">
         Sedang memuat data kehadiran...
         </div>
@@ -101,13 +100,12 @@ const PresenceList = () => {
 
   if (error) {
     return (
-    <div className="space-y-4 mt-2">
-      <div className="bg-white p-6 rounded-2xl shadow-xl border-l-8 border-blue-400">
-        <h2 className="text-xl font-bold text-gray-800">Daftar Kehadiran</h2>
-        <p className="text-gray-500 text-sm">Status terbaru</p>
-      </div>
+    <div className="bg-white p-2 rounded-2xl shadow-xl mt-2 flex flex-col border-l-8 border-blue-400">
+      <div className='bg-blue-200 rounded-xl text-blue-800 font-semibold text-center py-2 px-4 rounded-md mb-2 '>
+          Absen Masuk
+        </div>
 
-      <div className="scroll-container bg-white rounded-xl p-4 shadow-xl border-l-8 border-blue-400">
+      <div className="scroll-container bg-white rounded-xl p-4 shadow-xl border border-gray-200">
         <div className="text-center p-8 text-red-500">
         Terjadi kesalahan saat memuat data: {error}
         </div>
@@ -121,13 +119,12 @@ const PresenceList = () => {
 
   if (presenceData.length === 0) {
     return (
-    <div className="space-y-4 mt-2">
-      <div className="bg-white p-6 rounded-2xl shadow-xl border-l-8 border-blue-400">
-        <h2 className="text-xl font-bold text-gray-800">Daftar Kehadiran</h2>
-        <p className="text-gray-500 text-sm">Status terbaru</p>
-      </div>
+    <div className="bg-white p-2 rounded-2xl shadow-xl mt-2 flex flex-col border-l-8 border-blue-400">
+      <div className='bg-blue-200 rounded-xl text-blue-800 font-semibold text-center py-2 px-4 rounded-md mb-2 '>
+          Absen Masuk
+        </div>
 
-      <div className="scroll-container bg-white rounded-xl p-4 shadow-xl border-l-8 border-blue-400">
+      <div className="scroll-container bg-white rounded-xl p-4 shadow-xl border border-gray-200">
         <div className="text-center p-8 text-gray-500">
         Tidak ada data kehadiran yang ditemukan.
         </div>
