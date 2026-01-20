@@ -10,10 +10,10 @@ interface PresenceCardProps {
 
 const PresenceCard = ({ nama, jam, keterangan }: PresenceCardProps) => {
   const isMasuk = keterangan === 'Absen Masuk';
-  const cardColor = isMasuk ? 'bg-green-50' : 'bg-yellow-50'; // Contoh warna berbeda
+  const cardColor = 'bg-green-50'; // Contoh warna berbeda
 
   return (
-    <div className={`p-6 rounded-2xl shadow-md border-l-4 ${isMasuk ? 'border-green-500' : 'border-yellow-500'} transition-all duration-300 transform hover:scale-105 ${cardColor}`}>
+    <div className={`p-6 rounded-2xl shadow-md border-l-4 border-green-500 transition-all duration-300 transform hover:scale-105 ${cardColor}`}>
       <div className="flex items-center space-x-3 mb-2">
         <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 ${isMasuk ? 'text-green-500' : 'text-yellow-500'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
