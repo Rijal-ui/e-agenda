@@ -24,3 +24,28 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.perspective-1000 {
+  perspective: 1000px;
+  /* Tambahkan ini untuk mencegah kedipan (flicker) */
+  -webkit-backface-visibility: hidden;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+  /* Paksa GPU bekerja */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.backface-hidden {
+  /* Sembunyikan konten yang sedang membelakangi layar agar tidak diproses */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Memastikan layer terpisah */
+  transform: translateZ(0);
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}

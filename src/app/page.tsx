@@ -1,14 +1,13 @@
 // app/page.js
 
-import React from 'react';
 import Header from '@/component/Header';
 import Footer from '@/component/Footer';
 import AgendaTable from '@/component/AgendaTable';
 import PreAgendaTable from '@/component/PreAgendaTable'
-import PresenceList from '@/component/PresenceList';
 import SplashLoader from '@/component/SplashLoader';
 import RotateDeviceWarning from '@/component/RotateDeviceWarning';
-import PresencePermissionList from '@/component/PresencePermissionList';
+import QrAttendance from '@/component/QrAttendace'
+import FlippingPresence from '@/component/FlippingPresence';
 
 export default function Home() {
   return (
@@ -21,25 +20,24 @@ export default function Home() {
           </div>
 
           <div className="w-full flex-grow mt-2 grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Kontainer untuk dua tabel agenda (posisi atas-bawah) */}
-            <div className="md:col-span-2 flex flex-col gap-4">
-              {/* Tabel Agenda Pertama */}
+            <div className="md:col-span-2 flex flex-col gap-4 m-1">
               <div className="flex-1">
                 <PreAgendaTable />
               </div>
-              {/* Tabel Agenda Kedua */}
               <div className="flex-1">
                 <AgendaTable />
               </div>
             </div>
             
-            {/* Tabel Kehadiran (posisi samping kanan) */}
-            <div className="md:col-span-1 flex flex-col">
-              <div className='flex-1'>
-              <PresenceList />
+            <div className="md:col-span-1 flex flex-col gap-4">
+              {/* QR Code tetap di atas */}
+              <div className='h-auto'>
+                <QrAttendance />
               </div>
-              <div className='flex-1'>
-              <PresencePermissionList />
+
+              {/* Komponen Flip di sini */}
+              <div className='flex-1 relative'>
+                <FlippingPresence />
               </div>
             </div>
           </div>
