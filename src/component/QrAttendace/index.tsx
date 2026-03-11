@@ -20,7 +20,7 @@ const AttendanceQR: React.FC = () => {
   const fetchToken = useCallback(async () => {
     setLoading(true);
     try {
-      const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOiI2YTAyOTU1Yi1jYjIzLTQzNjAtOGI5NS1jMTljNjZkNDhkNWIifSwiaWF0IjoxNzczMTEyNTA3LCJleHAiOjE3NzMxOTg5MDd9.ML2zYfOTjhz0165nhK4ivpndl4pJEUbrqhn1K6Vz-UI"; 
+      const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOiI2YTAyOTU1Yi1jYjIzLTQzNjAtOGI5NS1jMTljNjZkNDhkNWIifSwiaWF0IjoxNzczMjExODExLCJleHAiOjE3OTA0OTE4MTF9.0xYTXmynwFI6si4D2-jTsYgb6HN6c0KCmi-Ufk5nB3k"; 
       const res = await fetch('/api/attendance/qr', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
