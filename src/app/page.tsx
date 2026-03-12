@@ -8,6 +8,7 @@ import SplashLoader from '@/component/SplashLoader';
 import RotateDeviceWarning from '@/component/RotateDeviceWarning';
 import QrAttendance from '@/component/QrAttendace'
 import FlippingPresence from '@/component/FlippingPresence';
+import PresenceList from '@/component/PresenceList';
 
 export default function Home() {
   return (
@@ -37,7 +38,7 @@ export default function Home() {
 
               {/* Komponen Flip di sini */}
               <div className='flex-1 relative'>
-                <FlippingPresence />
+                <PresenceList />
               </div>
             </div>
           </div>
