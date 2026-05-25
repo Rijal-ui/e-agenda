@@ -51,7 +51,7 @@ const SplashLoader = ({ children, duration = 5000, transitionDuration = 1000 }: 
               width={150}
               height={150}
             />
-            <h1 className="text-4xl font-extrabold text-blue-700">E - Agenda</h1>
+            <h1 className="text-4xl font-extrabold text-blue-700">si-Dinda</h1>
             <p className="text-lg text-gray-600">Loading...</p>
             <LottieLoading
             />
