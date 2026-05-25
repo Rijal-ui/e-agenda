@@ -8,7 +8,7 @@ const Footer = () => {
             <span>&copy;</span>
             <span>2025 Diskominfo HST</span>
             <span className="w-1 h-1 bg-white rounded-full"></span>
-            <span>E-Agenda</span>
+            <span>si-Dinda</span>
         </p>
   );
 };
