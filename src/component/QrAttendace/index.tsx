@@ -15,7 +15,9 @@ interface QrTokenResponse {
 const AttendanceQR: React.FC = () => {
   const [qrToken, setQrToken] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [countdown, setCountdown] = useState<number>(15); // State untuk detik
+  const [countdown, setCountdown] = useState<number>(15);
+  // State baru untuk mengunci string QR agar tidak berubah setiap detik
+  const [qrValue, setQrValue] = useState<string>(""); 
 
   const fetchToken = useCallback(async () => {
     setLoading(true);
@@ -29,8 +31,18 @@ const AttendanceQR: React.FC = () => {
 
       const jsonData: QrTokenResponse = await res.json();
       if (jsonData.data?.createAttendanceQrToken) {
-        setQrToken(jsonData.data.createAttendanceQrToken.token);
-        setCountdown(15); // Reset hitung mundur ke 15 setelah token baru didapat
+        const newToken = jsonData.data.createAttendanceQrToken.token;
+        setQrToken(newToken);
+        setCountdown(15); // Reset hitung mundur ke 15
+
+        // Mengunci waktu kedaluwarsa statis (15 detik dari sekarang) saat token diterima
+        const validUntilStr = new Date(Date.now() + 15000).toISOString();
+        
+        // Update nilai QR di sini (Hanya tereksekusi 15 detik sekali)
+        setQrValue(JSON.stringify({
+          token: newToken,
+          valid_until: validUntilStr
+        }));
       }
     } catch (err) {
       console.error("Failed to fetch QR Token:", err);
@@ -46,7 +58,7 @@ const AttendanceQR: React.FC = () => {
     return () => clearInterval(intervalId);
   }, [fetchToken]);
 
-  // Effect 2: Menangani visual hitung mundur (per detik)
+  // Effect 2: Menangani visual hitung mundur (per detik) - Tidak mengganggu QR Code lagi
   useEffect(() => {
     if (countdown <= 0) return;
 
@@ -57,14 +69,6 @@ const AttendanceQR: React.FC = () => {
     return () => clearInterval(timerId);
   }, [countdown]);
 
-  const getQrValue = (): string => {
-    if (!qrToken) return "";
-    return JSON.stringify({
-      token: qrToken,
-      valid_until: new Date(Date.now() + (countdown * 1000)).toISOString() 
-    });
-  };
-
   return (
     <div className="flex flex-col items-center justify-center p-7">
         <h3 className="text-white font-bold text-sm mb-2 uppercase tracking-wider text-center">
@@ -74,7 +78,7 @@ const AttendanceQR: React.FC = () => {
       <div className="relative p-3 bg-white rounded-2xl shadow-xl border-4 border-blue-100 transition-all duration-500">
         {qrToken ? (
           <QRCodeCanvas 
-            value={getQrValue()} 
+            value={qrValue} // Menggunakan state qrValue yang stabil
             size={200} 
             level="H"
             includeMargin={false}
