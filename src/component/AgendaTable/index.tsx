@@ -21,7 +21,7 @@ interface UserRel {
   nama: string,
 }
 
-const API_URL = 'https://e-agenda.hstkab.go.id/apis/agendas/public/daily';
+const API_URL = 'https://e-agenda.hstkab.go.id/api/agendas/public/daily';
 const RAW_TOKEN = 'your-secure-api-token-here-change-in-production';
 
 const AgendaTable = () => {
