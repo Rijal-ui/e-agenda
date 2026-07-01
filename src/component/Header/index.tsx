@@ -75,7 +75,7 @@ const Header = () => {
         />
         <div className="leading-tight">
           <h1 className="text-2xl font-extrabold text-blue-950 whitespace-nowrap">si-Dinda</h1>
-          <p className="text-blue-950 text-xs whitespace-nowrap">Dinas Komunikasi dan Informatika</p>
+          <p className="text-blue-950 text-xs whitespace-nowrap">DISKOMINFOSP HST</p>
         </div>
       </div>
 
