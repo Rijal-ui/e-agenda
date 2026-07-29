@@ -46,12 +46,12 @@ const SplashLoader = ({ children, duration = 5000, transitionDuration = 1000 }: 
         >
           <div className="animate-pulse flex flex-col items-center space-y-4">
             <Image
-              src="/logo_kominfo.png"
-              alt="Logo E-Agenda"
-              width={150}
-              height={150}
+              src="/si_dinda.jpeg"
+              alt="Logo si-Dinda"
+              width={550}
+              height={550}
             />
-            <h1 className="text-4xl font-extrabold text-blue-700">si-Dinda</h1>
+            {/* <h1 className="text-4xl font-extrabold text-blue-700">si-Dinda</h1> */}
             <p className="text-lg text-gray-600">Loading...</p>
             <LottieLoading
             />
